@@ -21,7 +21,7 @@
         android:scaleType="centerCrop" />
 
     <TextView
-        android:text="Name"
+        android:text="@string/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/name_tv"
@@ -33,7 +33,7 @@
         android:layout_marginTop="16dp" />
 
     <TextView
-        android:text="Description"
+        android:text="@string/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/description_tv"
