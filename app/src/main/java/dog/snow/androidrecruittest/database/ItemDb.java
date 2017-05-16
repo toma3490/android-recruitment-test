@@ -12,6 +12,4 @@ public class ItemDb {
             public static final String URL = "url";
         }
     }
-
-
 }

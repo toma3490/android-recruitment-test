@@ -18,7 +18,7 @@ public class Item {
     private String icon;
     @SerializedName("timestamp")
     @Expose
-    private Integer timestamp;
+    private Long timestamp;
     @SerializedName("url")
     @Expose
     private String url;
@@ -55,11 +55,11 @@ public class Item {
         this.icon = icon;
     }
 
-    public Integer getTimestamp() {
+    public Long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Integer timestamp) {
+    public void setTimestamp(Long timestamp) {
         this.timestamp = timestamp;
     }
 
