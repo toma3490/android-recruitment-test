@@ -8,7 +8,7 @@ public class ItemDbHelper extends SQLiteOpenHelper{
 
     public static final int VERSION = 1;
     public static final String DB_NAME = "ItemDb.db";
-    private static final String SQL_CREATE_ENTRIES =
+    private static final String CREATE_DB =
             "Create table " + ItemDb.ItemTable.NAME +
             "(" + " _id integer primary key autoincrement, " + ItemDb.ItemTable.Cols.ID +
             ", " + ItemDb.ItemTable.Cols.NAME +
@@ -24,7 +24,7 @@ public class ItemDbHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(SQL_CREATE_ENTRIES);
+        db.execSQL(CREATE_DB);
     }
 
     @Override
