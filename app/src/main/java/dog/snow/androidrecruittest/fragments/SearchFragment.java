@@ -22,7 +22,7 @@ public class SearchFragment extends Fragment {
 
     private EditText searchEditText;
     private ImageButton searchButton;
-    private String searchQuery;
+    private String searchQuery = "";
     private SearchInterface searchInterface;
 
     public static SearchFragment getSearchFragment(){
@@ -44,6 +44,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 View view = getActivity().getCurrentFocus();
+
                 hideInput(view);
 
                 isStringEmpty(view, searchQuery);
@@ -74,6 +75,7 @@ public class SearchFragment extends Fragment {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH){
                     View view = getActivity().getCurrentFocus();
+
                     hideInput(view);
 
                     isStringEmpty(v, searchEditText.getText().toString());

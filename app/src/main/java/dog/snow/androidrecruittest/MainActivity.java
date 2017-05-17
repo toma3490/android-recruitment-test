@@ -113,6 +113,9 @@ public class MainActivity extends AppCompatActivity implements SearchInterface {
                         Log.d(TAG, "add in list items " + item.getId().toString());
                     }
                     updateUI();
+                }else {
+                    Log.d(TAG, response.errorBody().toString());
+                    Toast.makeText(MainActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                 }
             }
 

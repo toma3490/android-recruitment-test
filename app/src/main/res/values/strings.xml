@@ -4,6 +4,7 @@
     <string name="empty_list">No items to show...</string>
     <string name="name">Name</string>
     <string name="description">Description</string>
-    <string name="empty_query">Empty query</string>
+    <string name="empty_query">Search text is empty</string>
     <string name="no_internet_connection">No internet connection</string>
+    <string name="error">Loading error</string>
 </resources>
