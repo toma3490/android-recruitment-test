@@ -43,10 +43,10 @@ public class SearchFragment extends Fragment {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                v = getActivity().getCurrentFocus();
-                hideInput(v);
+                View view = getActivity().getCurrentFocus();
+                hideInput(view);
 
-                isStringEmpty(v, searchQuery);
+                isStringEmpty(view, searchQuery);
 
                 searchInterface.scrollView(searchQuery);
             }

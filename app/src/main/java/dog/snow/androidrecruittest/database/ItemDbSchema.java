@@ -1,6 +1,6 @@
 package dog.snow.androidrecruittest.database;
 
-public class ItemDb {
+public class ItemDbSchema {
     public static final class ItemTable{
         public static final String NAME = "items";
         public static final class Cols{

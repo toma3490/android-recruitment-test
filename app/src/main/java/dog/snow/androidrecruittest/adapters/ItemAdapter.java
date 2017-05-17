@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import dog.snow.androidrecruittest.R;
@@ -22,8 +21,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     private Picasso picasso;
     private LayoutInflater layoutInflater;
 
-    public ItemAdapter(Context context) {
-        this.items = new ArrayList<>();
+    public ItemAdapter(Context context, List<Item> items) {
+        this.items = items;
         layoutInflater = LayoutInflater.from(context);
         this.picasso = Picasso.with(context);
     }
@@ -64,5 +63,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         return items.size();
     }
 
-
+    public void clearItems(){
+        this.items.clear();
+        notifyDataSetChanged();
+    }
 }

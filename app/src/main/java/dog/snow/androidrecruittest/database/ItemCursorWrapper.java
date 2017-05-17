@@ -12,12 +12,12 @@ public class ItemCursorWrapper extends CursorWrapper{
     }
 
     public Item getItem(){
-        int id = getInt(getColumnIndex(ItemDb.ItemTable.Cols.ID));
-        String name = getString(getColumnIndex(ItemDb.ItemTable.Cols.NAME));
-        String description = getString(getColumnIndex(ItemDb.ItemTable.Cols.DESCRIPTION));
-        String icon = getString(getColumnIndex(ItemDb.ItemTable.Cols.ICON));
-        long timestamp = getLong(getColumnIndex(ItemDb.ItemTable.Cols.TIMESTAMP));
-        String url = getString(getColumnIndex(ItemDb.ItemTable.Cols.URL));
+        int id = getInt(getColumnIndex(ItemDbSchema.ItemTable.Cols.ID));
+        String name = getString(getColumnIndex(ItemDbSchema.ItemTable.Cols.NAME));
+        String description = getString(getColumnIndex(ItemDbSchema.ItemTable.Cols.DESCRIPTION));
+        String icon = getString(getColumnIndex(ItemDbSchema.ItemTable.Cols.ICON));
+        long timestamp = getLong(getColumnIndex(ItemDbSchema.ItemTable.Cols.TIMESTAMP));
+        String url = getString(getColumnIndex(ItemDbSchema.ItemTable.Cols.URL));
 
         Item item = new Item();
 
