@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -48,14 +50,28 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        Item item = items.get(position);
+    public void onBindViewHolder(final ViewHolder holder, int position) {
+        final Item item = items.get(position);
         holder.name.setText(item.getName());
         holder.description.setText(item.getDescription());
         picasso.load(item.getUrl())
-                .error(R.drawable.placeholder)
+                .networkPolicy(NetworkPolicy.OFFLINE)
                 .placeholder(R.drawable.placeholder)
-                .into(holder.icon);
+                .into(holder.icon, new Callback() {
+                    @Override
+                    public void onSuccess() {
+
+                    }
+
+                    @Override
+                    public void onError() {
+                        // Try again online if cache failed
+                        picasso.load(item.getUrl())
+                                .placeholder(R.drawable.placeholder)
+                                .error(R.drawable.placeholder)
+                                .into(holder.icon);
+                    }
+                });
     }
 
     @Override
