@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements SearchInterface {
     private void updateUI() {
         swipeRefreshLayout.setRefreshing(false);
         adapter.clearItems();
-        itemList.addAll(DatabaseController.getInstance(this).getItems());
+        itemList.addAll(DatabaseController.getInstance(getApplicationContext()).getItems());
         if (itemList.size() > 0){
             emptyTextView.setVisibility(View.GONE);
             adapter.notifyDataSetChanged();
