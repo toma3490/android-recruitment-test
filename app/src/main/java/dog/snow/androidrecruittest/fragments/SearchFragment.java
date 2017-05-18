@@ -73,6 +73,7 @@ public class SearchFragment extends Fragment {
         searchEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                // keyboard enter button is a search button
                 if (actionId == EditorInfo.IME_ACTION_SEARCH){
                     View view = getActivity().getCurrentFocus();
 
@@ -89,6 +90,7 @@ public class SearchFragment extends Fragment {
         return view;
     }
 
+    // check if search query is empty
     private void isStringEmpty(View v, String s) {
         if (s.isEmpty()){
             Snackbar.make(v, R.string.empty_query, Snackbar.LENGTH_SHORT).show();

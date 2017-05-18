@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements SearchInterface {
         searchQuery = "";
         itemList = new ArrayList<>();
 
+        // add search fragment to activity
         if (savedInstanceState == null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements SearchInterface {
         }
 
         emptyTextView = (TextView) findViewById(R.id.empty_list_tv);
+        
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -73,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements SearchInterface {
         adapter = new ItemAdapter(this, itemList);
         recyclerView.setAdapter(adapter);
 
+        //if our DB is empty - make request to server, else - load data from DB
         if (DatabaseController.getInstance(this).getItems().size() == 0){
             fetchData();
         } else {
@@ -80,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements SearchInterface {
         }
     }
 
+    // load data to list from DB
     private void updateUI() {
         swipeRefreshLayout.setRefreshing(false);
         adapter.clearItems();
@@ -92,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements SearchInterface {
         }
     }
 
+    // making request to server if have internet connection
     private void fetchData() {
         if (!isNetworkAvailable()){
             Toast.makeText(this, getString(R.string.no_internet_connection), Toast.LENGTH_SHORT).show();
@@ -127,6 +132,8 @@ public class MainActivity extends AppCompatActivity implements SearchInterface {
         });
     }
 
+    //check if internet connection is available
+    // TODO: 18.05.2017 put into network utils
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -140,6 +147,7 @@ public class MainActivity extends AppCompatActivity implements SearchInterface {
         scrollToPosition();
     }
 
+    //scroll view to searching item
     private void scrollToPosition() {
         String name;
         String description;

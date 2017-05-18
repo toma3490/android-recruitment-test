@@ -78,6 +78,7 @@ public class DatabaseController {
         database.execSQL("DELETE FROM " + ItemDbSchema.ItemTable.NAME);
     }
 
+    // add item into DB
     public void addItem(Item item){
         ContentValues values = getContentValues(item);
         database.insert(ItemDbSchema.ItemTable.NAME, null, values);
