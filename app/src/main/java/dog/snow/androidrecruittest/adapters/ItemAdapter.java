@@ -54,6 +54,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         final Item item = items.get(position);
         holder.name.setText(item.getName());
         holder.description.setText(item.getDescription());
+        //load image from cache
         picasso.load(item.getUrl())
                 .networkPolicy(NetworkPolicy.OFFLINE)
                 .placeholder(R.drawable.placeholder)

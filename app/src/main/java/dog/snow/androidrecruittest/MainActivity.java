@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements SearchInterface {
                     List<Item> items = response.body();
                     for (Item item : items) {
                         DatabaseController.getInstance(getApplicationContext()).addItem(item);
-                        Log.d(TAG, "add in list items " + item.getId().toString());
+//                        Log.d(TAG, "add in list items " + item.getId().toString());
                     }
                     updateUI();
                 }else {

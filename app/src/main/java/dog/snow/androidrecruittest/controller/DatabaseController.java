@@ -40,11 +40,12 @@ public class DatabaseController {
         Cursor cursor = database.query(ItemDbSchema.ItemTable.NAME, null, null, null, null, null, null);
         ItemCursorWrapper cursorWrapper = new ItemCursorWrapper(cursor);
 
+        //adding items to list
         try {
             cursorWrapper.moveToFirst();
             while (!cursorWrapper.isAfterLast()){
                 items.add(cursorWrapper.getItem());
-                Log.d(TAG, "cursor added item = " + cursorWrapper.getItem().getId().toString());
+//                Log.d(TAG, "cursor added item = " + cursorWrapper.getItem().getId().toString());
                 cursorWrapper.moveToNext();
             }
         } finally {
